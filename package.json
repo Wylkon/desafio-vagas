@@ -1,0 +1,19 @@
+{
+  "name": "desafio-vagas",
+  "version": "1.0.0",
+  "description": "Projeto criado com o objetivo de se classificar para a vaga de Frontend Developer no Vagas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Wylkon/desafio-vagas.git"
+  },
+  "author": "Wylkon Cardoso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wylkon/desafio-vagas/issues"
+  },
+  "homepage": "https://github.com/Wylkon/desafio-vagas"
+}
