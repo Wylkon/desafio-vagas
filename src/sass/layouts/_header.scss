@@ -1,0 +1,91 @@
+//
+// Navigation
+// ---------------------------
+
+.fi-header {
+    background-color: $purple;
+
+    .fi-wrap-header {
+        width: 90vw;
+        margin: 0 auto;
+        padding: 12px 0;
+
+        h1 {
+            margin: 0;
+            display: inline-block;
+            width: 168px;
+            height: 32px;
+
+            svg {
+                fill: $white;
+            }
+        }
+    }
+
+    .fi-navbar {
+        float: right;
+        position: relative;
+
+        &:hover {
+            ul {
+                display: block;
+            }
+        }
+
+        .fi-hamburguer {
+            cursor: pointer;
+        }
+
+        .fi-hamburguer-text {
+            font-size: 1.6em;
+            color: $white;
+            font-weight: $regular;
+            display: inline-block;
+            vertical-align: sub;
+            margin-top: 5px;
+            margin-right: 10px;
+        }
+
+        .fi-hamburguer-icon {
+            width: 16px;
+            height: 3px;
+            display: inline-block;
+            background: $white;
+            position: relative;
+            border-radius: 4px;
+
+            &:before,
+            &:after {
+                content: "";
+                width: 16px;
+                height: 3px;
+                background: $white;
+                position: absolute;
+                top: -6px;
+                border-radius: 4px;
+            }
+
+            &:after {
+                top: auto;
+                bottom: -6px;
+            }
+        }
+
+        ul {
+            // display: none;
+            position: absolute;
+            top: 100%;
+            background: $white;
+
+            a {
+                color: $gray;
+                font-weight: $semiBold;
+            }
+        }
+    }
+
+    a {
+        color: $white;
+        text-decoration: none;
+    }
+}
