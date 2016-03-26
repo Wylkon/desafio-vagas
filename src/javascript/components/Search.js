@@ -1,10 +1,11 @@
-var React   = require('react');
-var Router  = require('react-router');
-var Results = require('./Search/Results');
+import React from 'react';
+import Router from 'react-router';
+import Results from './Search/Results';
 
-var Search = React.createClass({
-  getInitialState: function() {
-    return {
+class Search extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
       videos: {
         "kind": "youtube#searchListResponse",
         "etag": "\"q5k97EMVGxODeKcDgp8gnMu79wM/487dy6_BuuP4qIK97y4MgXCl7eI\"",
@@ -150,9 +151,9 @@ var Search = React.createClass({
         ]
         }
     }
-  },
-  render: function() {
-    console.log(this.props.params.term)
+  }
+
+  render() {
     render: {
       return (
         <div>
@@ -162,6 +163,6 @@ var Search = React.createClass({
       );
     }
   }
-});
+}
 
-module.exports = Search;
+export default Search;

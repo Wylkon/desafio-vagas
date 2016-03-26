@@ -1,22 +1,22 @@
-var React = require('react');
-var Router = require( 'react-router');
-var Link = Router.Link;
-var IndexLink = Router.IndexLink;
-var Navigation = require('./Navigation');
-var SearchBar = require('./SearchBar');
+import React from 'react';
+import {IndexLink} from 'react-router';
+import Navigation from './Navigation';
+import SearchBar from './SearchBar';
 
-var Header = React.createClass({
-  render: function() {
-    return (
-      <header className="fi-header">
-        <div className="fi-wrap-header">
-          <h1><IndexLink to="/" className="logo" activeClassName="selected" title="Fictícia Vídeos"><svg><use xlinkHref='#ficticia'/></svg></IndexLink></h1>
-          <Navigation />
-          <SearchBar />
-        </div>
-      </header>
-    )
-  }
-});
+const Header = ({history}) => {
+  return (
+    <header className="fi-header">
+      <div className="fi-wrap-header">
+        <h1>
+          <IndexLink to="/" className="logo" activeClassName="selected" title="Fictícia Vídeos">
+            <svg><use xlinkHref='#ficticia'/></svg>
+          </IndexLink>
+        </h1>
+        <Navigation />
+        <SearchBar history={history}/>
+      </div>
+    </header>
+  )
+}
 
-module.exports = Header;
+export default Header;

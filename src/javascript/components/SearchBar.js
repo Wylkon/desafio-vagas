@@ -1,33 +1,37 @@
-var React = require('react');
-var Router = require( 'react-router');
+import React from 'react';
 
-var SearchBar = React.createClass({
-  mixins: [Router.History],
+class SearchBar extends React.Component {
 
-  getRef: function(ref) {
+  getRef(ref) {
     this.termRef = ref;
-  },
-  handleSubmit: function() {
-    var term = this.termRef.value;
+  }
+
+  handleSubmit() {
+    const term = this.termRef.value;
     this.termRef.value = '';
-    this.history.pushState(null, "search/" + term);
-  },
-  activeInput: function(e) {
+    this.context.router.push(`/search/${term}`);
+  }
+
+  activeInput(e) {
     $('.fi-search-bar').addClass('active');
-  },
+  }
 
-  disableInput: function(e) {
+  disableInput(e) {
     $('.fi-search-bar').removeClass('active');
-  },
+  }
 
-  render: function() {
+  render() {
     return (
-      <form onSubmit={this.handleSubmit} className="fi-search-bar">
-        <input type="text" placeholder="Busca" onFocus={this.activeInput} onBlur={this.disableInput} ref={this.getRef} />
+      <form onSubmit={() => this.handleSubmit()} className="fi-search-bar">
+        <input type="text" placeholder="Busca" onFocus={() => this.activeInput()} onBlur={() => this.disableInput()} ref={(ref) => this.getRef(ref)} />
         <button>Enviar</button>
       </form>
     )
   }
-});
+}
 
-module.exports = SearchBar;
+SearchBar.contextTypes = {
+  router: React.PropTypes.object.isRequired
+}
+
+export default SearchBar;

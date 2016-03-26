@@ -1,18 +1,16 @@
-var React  = require( 'react');
-var Header = require('./Header');
+import React from 'react';
+import Header from './Header';
 require('../../sass/styles.scss');
 
-var Main = React.createClass({
-  render: function() {
-    return (
-      <div className="fi-main">
-        <Header />
-        <div className="fi-container">
-          {this.props.children}
-        </div>
+const Main = ({children}) => {
+  return (
+    <div className="fi-main">
+      <Header />
+      <div className="fi-container">
+        {children}
       </div>
-    )
-  }
-});
+    </div>
+  )
+}
 
-module.exports = Main;
+export default Main;
