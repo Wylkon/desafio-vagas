@@ -7,13 +7,20 @@
 $white:                     #ffffff !default;
 $black:                     #000000 !default;
 $purple:                    #a8395c !default;
+$green:                     #5fbdd5 !default;
+
+// Fifty Shades of Gray
 $gray:                      #797979 !default;
+$gray2:                     #737373 !default;
+$grayHover:                 #f2f2f2 !default;
+$grayPress:                 #e6e6e6 !default;
+$grayBorder:                #c8c8c8 !default;
+$textColor:                 #4c4c4c !default;
 
 
 // Scaffolding
 // -------------------------
 $bodyBackground:            $white !default;
-$textColor:                 $black !default;
 $hrBorder:                  $black !default;
 
 
@@ -25,6 +32,7 @@ $serif:                     serif !default;
 $primaryFont:               "Titillium Web", $sans !default;
 $secondaryFont:             "Lato", $sans !default;
 
+$thin:                      300 !default;
 $regular:                   400 !default;
 $semiBold:                  600 !default;
 $bold:                      700 !default;

@@ -3,10 +3,22 @@
 // ---------------------------
 
 @import "layouts/application";
-@import "layouts/main";
 @import "layouts/header";
 
-.container {
-    display: flex;
-    justify-content: flex-start;
+.fi-container {
+    max-width: 952px;
+    width: 90vw;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    .fi-medium-wrap {
+        width: calc(58.8% - 14px);
+        float: left;
+    }
+
+    .fi-small-wrap {
+        width: calc(41.17% - 14px);
+        float: right;
+    }
 }
