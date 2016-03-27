@@ -1,7 +1,7 @@
 import React from 'react';
 import YTSearch from 'youtube-search-channel';
-import VideoDetail from './VideoDetail';
-import VideoList from './VideoList';
+import VideoDetail from './Videos/VideoDetail';
+import VideoList from './Videos/VideoList';
 const ApiKey = 'AIzaSyBMVaFEeyzGrPhY-sjmJZprqZrJj2qbeQU';
 
 class Home extends React.Component {

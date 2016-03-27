@@ -1,5 +1,4 @@
 import React from 'react';
-import Axios from 'axios';
 import Marked from 'marked';
 import getYoutubeInfo from '../../utils/helpers';
 

@@ -1,6 +1,6 @@
 import React  from 'react'
 import Marked from 'marked';
-import VideoInfo from './Videos/VideoInfo';
+import VideoInfo from './VideoInfo';
 
 const VideoDetail = ({video, apikey}) => {
 

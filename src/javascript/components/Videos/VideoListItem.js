@@ -1,6 +1,5 @@
 import React  from 'react'
-// import VideoViews from './VideoViews'
-// import VideoCount from './VideoCount'
+import VideoViews from './VideoViews'
 
 const VideoListItem = ({video, handleVideoSelect}) => {
   const imageUrl = video.snippet.thumbnails.high.url;
@@ -10,7 +9,6 @@ const VideoListItem = ({video, handleVideoSelect}) => {
     <li onClick={() => handleVideoSelect(video)} className="fi-video-item">
       <div className="fi-video-media">
         <img className="fi-video-image" src={imageUrl} />
-        {/*<VideoCount id={videoID} />*/}
       </div>
       <div className="fi-video-text">
         <h3 className="fi-video-heading" numberOfLines="">
@@ -20,7 +18,7 @@ const VideoListItem = ({video, handleVideoSelect}) => {
         </h3>
         <div className="fi-video-views">
             <span className="icon-svg"><svg><use xlinkHref='#icon-views'/></svg></span>
-            {/*<VideoViews id={videoID} />*/}
+            <VideoViews videoId={videoID} />
         </div>
       </div>
     </li>
