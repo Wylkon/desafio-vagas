@@ -4,9 +4,9 @@
 
 .fi-header {
     background-color: $purple;
-    height: 56px;
     position: relative;
-    z-index: 2;
+    z-index: 3;
+    height: 103px;
 
     .fi-wrap-header {
         width: 90vw;
@@ -147,5 +147,12 @@
     a {
         color: $white;
         text-decoration: none;
+    }
+}
+
+
+@media (min-width: 603px) {
+    .fi-header {
+        height: 56px;
     }
 }

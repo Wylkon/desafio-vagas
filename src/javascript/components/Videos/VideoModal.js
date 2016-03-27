@@ -98,12 +98,14 @@ class VideoModal extends React.Component {
   openModal(){
     $('.fi-modal').removeClass('disabled');
     $('.fi-modal-overlay').removeClass('disabled');
+    $('body').addClass('is-opened');
   }
 
   closeModal(){
     $('.fi-modal').addClass('disabled');
     $('.fi-modal-overlay').addClass('disabled');
     $('.embed-responsive-item').removeAttr('src');
+    $('body').removeClass('is-opened');
   }
 
   render() {

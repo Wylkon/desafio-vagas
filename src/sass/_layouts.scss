@@ -13,12 +13,27 @@
     padding-bottom: 30px;
 
     .fi-medium-wrap {
-        width: calc(58.8% - 14px);
-        float: left;
+        width: 100%;
     }
 
     .fi-small-wrap {
-        width: calc(41.17% - 14px);
-        float: right;
+        width: 100%;
+        margin-top: 30px;
+    }
+}
+
+@media (min-width:992px) {
+    .fi-container {
+
+        .fi-medium-wrap {
+            width: calc(58.8% - 14px);
+            float: left;
+        }
+
+        .fi-small-wrap {
+            width: calc(41.17% - 14px);
+            float: right;
+            margin-top: 0;
+        }
     }
 }

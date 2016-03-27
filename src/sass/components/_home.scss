@@ -9,6 +9,11 @@
     }
 }
 
+.fi-video-detail {
+    overflow: hidden;
+    width: 100%;
+}
+
 .fi-video-details {
     border: 1px solid $grayBorder;
     padding: 24px;
@@ -16,44 +21,9 @@
     position: relative;
 
     .fi-description-wrap {
-        max-height: 98px;
-        overflow: hidden;
-        transition: max-height .6s $easeDefault;
-
-        > div {
-            overflow: auto;
-            max-height: 200px
-        }
         a {
             color: $purple;
         }
-    }
-
-    &:hover {
-
-        .fi-description-wrap {
-            max-height: 300px;
-        }
-
-        &:after {
-            opacity: 0;
-        }
-    }
-
-    &:after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 90px;
-        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7db9e8+0,ffffff+53&0+0,1+62 */
-        background: -moz-linear-gradient(top,  rgba(125,185,232,0) 0%, rgba(255,255,255,0.85) 53%, rgba(255,255,255,1) 62%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(top,  rgba(125,185,232,0) 0%,rgba(255,255,255,0.85) 53%,rgba(255,255,255,1) 62%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom,  rgba(125,185,232,0) 0%,rgba(255,255,255,0.85) 53%,rgba(255,255,255,1) 62%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007db9e8', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-        pointer-events: none;
-        @extend %transition-opacity-slow;
     }
 
     h2 {
@@ -61,7 +31,6 @@
         font-size: 1.8em;
         font-weight: $regular;
         margin: 0;
-        max-width: calc(100% - 66px);
 
         + div {
             margin-top: 20px;
@@ -82,6 +51,7 @@
         position: absolute;
         top: 21px;
         right: 24px;
+        display: none;
 
         &:hover {
             .fi-modal-content {
@@ -149,7 +119,6 @@
     border: 1px solid $grayBorder;
     padding: 15px;
     box-shadow: 0 3px 2px 0 rgba(#000, 0.2);
-    max-height: 519px;
 
     .fi-load-more {
         display: block;
@@ -274,5 +243,63 @@
             vertical-align: sub;
             margin-bottom: 0;
         }
+    }
+}
+
+@media (min-width: 992px) {
+    .fi-video-detail {
+        overflow: visible !important;
+    }
+
+    .fi-video-details {
+
+        .fi-description-wrap {
+            max-height: 98px;
+            overflow: hidden;
+            transition: max-height .6s $easeDefault;
+
+            > div {
+                overflow: auto;
+                max-height: 200px
+            }
+        }
+
+        &:hover {
+            .fi-description-wrap {
+                max-height: 300px;
+            }
+
+            &:after {
+                opacity: 0;
+            }
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 90px;
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7db9e8+0,ffffff+53&0+0,1+62 */
+            background: -moz-linear-gradient(top,  rgba(125,185,232,0) 0%, rgba(255,255,255,0.85) 53%, rgba(255,255,255,1) 62%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top,  rgba(125,185,232,0) 0%,rgba(255,255,255,0.85) 53%,rgba(255,255,255,1) 62%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom,  rgba(125,185,232,0) 0%,rgba(255,255,255,0.85) 53%,rgba(255,255,255,1) 62%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007db9e8', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+            pointer-events: none;
+            transition: opacity .8s $easeDefault;
+        }
+
+        h2 {
+            max-width: calc(100% - 66px);
+        }
+
+        .fi-modal-info {
+            display: block;
+        }
+    }
+
+    .fi-video-list {
+        max-height: 519px;
     }
 }

@@ -19,6 +19,7 @@ class VideoInfo extends React.Component {
 
   componentWillReceiveProps(nextProps){
     this.init(nextProps.selectedVideo.id.videoId);
+    $("html, body").animate({ scrollTop: "0px" });
   }
 
   init(id){

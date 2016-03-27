@@ -5,11 +5,14 @@
 
 .fi-modal {
     background: $white;
-    @extend %absolute-center;
-    width: 560px;
-    z-index: 2;
+    position: fixed;
+    top: 10px;
+    width: 90vw;
+    height: 95vh;
+    overflow: auto;
+    z-index: 5;
     border: 1px solid $grayBorder;
-    padding: 15px 24px;
+    padding: 10px 10px 0;
     box-shadow: 0 3px 2px 0 rgba(#000, 0.2);
 
     .fi-responsive-16by9 {
@@ -58,6 +61,7 @@
         float: left;
         border: none;
         box-shadow: none;
+        padding: 0;
 
         &:after {
             display: none;
@@ -78,8 +82,31 @@
     width: 100vw;
     height: 100vh;
     @extend %transition-opacity;
+    z-index: 1;
 
     &.disabled {
         display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .fi-modal {
+        width: 560px;
+        z-index: 5;
+        overflow: visible;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        height: auto;
+        padding: 15px 24px;
+    }
+
+    .fi-video-details {
+        padding: 24px;
+    }
+
+    .fi-modal-overlay {
+        z-index: 2;
     }
 }
