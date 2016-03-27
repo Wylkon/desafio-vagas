@@ -1,13 +1,26 @@
-var React = require('react');
+import React from 'react';
+import ResultsList from './ResultsList';
 
-var Results = React.createClass({
-  render: function() {
+const Results = ({term, videos}) => {
+  if (videos.length === 0) {
     return (
       <div>
-        {console.log(this.props.videos)}
+        <h2 className="fi-headline">Nenhum resultado encontrado para: "{term}"</h2>
       </div>
     )
   }
-});
 
-module.exports = Results;
+  return (
+    <div>
+      <h2 className="fi-headline">Resultados para: "{term}"</h2>
+      <div className="fi-video-list"><ResultsList term={term} videos={videos} /></div>
+    </div>
+  )
+}
+
+Results.propTypes = {
+  term: React.PropTypes.string.isRequired,
+  videos: React.PropTypes.array.isRequired
+}
+
+export default Results;

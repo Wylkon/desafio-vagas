@@ -7,142 +7,143 @@
     .fi-responsive-16by9 {
         margin-bottom: 28px;
     }
+}
 
-    .fi-video-details {
-        border: 1px solid $grayBorder;
-        padding: 24px;
-        box-shadow: 0 3px 2px 0 rgba(#000, 0.2);
-        position: relative;
+.fi-video-details {
+    border: 1px solid $grayBorder;
+    padding: 24px;
+    box-shadow: 0 3px 2px 0 rgba(#000, 0.2);
+    position: relative;
+
+    .fi-description-wrap {
+        max-height: 98px;
+        overflow: hidden;
+        transition: max-height .6s $easeDefault;
+
+        > div {
+            overflow: auto;
+            max-height: 200px
+        }
+        a {
+            color: $purple;
+        }
+    }
+
+    &:hover {
 
         .fi-description-wrap {
-            max-height: 98px;
-            overflow: hidden;
-            transition: max-height .6s $easeDefault;
-
-            > div {
-                overflow: auto;
-                max-height: 200px
-            }
-            a {
-                color: $purple;
-            }
-        }
-
-        &:hover {
-
-            .fi-description-wrap {
-                max-height: 300px;
-            }
-
-            &:after {
-                opacity: 0;
-            }
+            max-height: 300px;
         }
 
         &:after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 90px;
-            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7db9e8+0,ffffff+53&0+0,1+62 */
-            background: -moz-linear-gradient(top,  rgba(125,185,232,0) 0%, rgba(255,255,255,0.85) 53%, rgba(255,255,255,1) 62%); /* FF3.6-15 */
-            background: -webkit-linear-gradient(top,  rgba(125,185,232,0) 0%,rgba(255,255,255,0.85) 53%,rgba(255,255,255,1) 62%); /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to bottom,  rgba(125,185,232,0) 0%,rgba(255,255,255,0.85) 53%,rgba(255,255,255,1) 62%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007db9e8', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-            pointer-events: none;
-            @extend %transition-opacity-slow;
+            opacity: 0;
         }
+    }
 
-        h2 {
-            color: $purple;
-            font-size: 1.8em;
-            font-weight: $regular;
-            margin: 0;
-            max-width: calc(100% - 66px);
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 90px;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7db9e8+0,ffffff+53&0+0,1+62 */
+        background: -moz-linear-gradient(top,  rgba(125,185,232,0) 0%, rgba(255,255,255,0.85) 53%, rgba(255,255,255,1) 62%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  rgba(125,185,232,0) 0%,rgba(255,255,255,0.85) 53%,rgba(255,255,255,1) 62%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  rgba(125,185,232,0) 0%,rgba(255,255,255,0.85) 53%,rgba(255,255,255,1) 62%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007db9e8', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+        pointer-events: none;
+        @extend %transition-opacity-slow;
+    }
 
-            + div {
-                margin-top: 20px;
+    h2 {
+        color: $purple;
+        font-size: 1.8em;
+        font-weight: $regular;
+        margin: 0;
+        max-width: calc(100% - 66px);
 
-                p {
-                    font-size: 1.4em;
-                    color: $textColor;
-                    line-height: 1.6;
-                }
+        + div {
+            margin-top: 20px;
+
+            p {
+                font-size: 1.4em;
+                color: $textColor;
+                line-height: 1.6;
             }
         }
+    }
 
-        p:empty {
-            display: none;
-        }
+    p:empty {
+        display: none;
+    }
 
-        .fi-modal-info {
-            position: absolute;
-            top: 21px;
-            right: 24px;
+    .fi-modal-info {
+        position: absolute;
+        top: 21px;
+        right: 24px;
 
-            &:hover {
-                .fi-modal-content {
-                    opacity: 1;
-                    transform: translate3d(-50%,0,0);
-                }
-
-                .icon-svg {
-                    opacity: .8;
-                }
-            }
-
-            &:nth-of-type(2n) {
-                right: 54px;
+        &:hover {
+            .fi-modal-content {
+                opacity: 1;
+                transform: translate3d(-50%,0,0);
             }
 
             .icon-svg {
-                width: 24px;
-                height: 19px;
-                display: block;
-                color: $green;
+                opacity: .8;
+            }
+        }
+
+        &:nth-of-type(2n) {
+            right: 54px;
+        }
+
+        .icon-svg {
+            width: 24px;
+            height: 19px;
+            display: block;
+            color: $green;
+        }
+
+        .fi-modal-content {
+            @extend %horizontal-center;
+            bottom: calc(100% + 12px);
+            left: 50%;
+            background: $white;
+            padding: 15px 19px;
+            white-space: nowrap;
+            border: 3px solid $grayPress;
+            border-radius: 6px;
+            z-index: 2;
+            opacity: 0;
+            transform: translate3d(-50%,-20px,0);
+            transition: opacity .6s $easeDefault, transform .2s $easeDefault;
+            pointer-events: none;
+
+            &:before,
+            &:after {
+                @extend %horizontal-center;
+                bottom: -23px;
+                content: "";
+                border: 10px solid transparent;
+                border-top-color: $grayPress;
             }
 
-            .fi-modal-content {
-                @extend %horizontal-center;
-                bottom: calc(100% + 12px);
-                left: 50%;
-                background: $white;
-                padding: 15px 19px;
-                white-space: nowrap;
-                border: 3px solid $grayPress;
-                border-radius: 6px;
-                z-index: 2;
-                opacity: 0;
-                transform: translate3d(-50%,-20px,0);
-                transition: opacity .6s $easeDefault, transform .2s $easeDefault;
-                pointer-events: none;
+            &:after {
+                bottom: -19px;
+                border-top-color: $white;
+            }
 
-                &:before,
-                &:after {
-                    @extend %horizontal-center;
-                    bottom: -23px;
-                    content: "";
-                    border: 10px solid transparent;
-                    border-top-color: $grayPress;
-                }
-
-                &:after {
-                    bottom: -19px;
-                    border-top-color: $white;
-                }
-
-                p {
-                    margin: 0;
-                    color: $textColor;
-                    font-size: 1.4em;
-                    font-weight: $semiBold;
-                }
+            p {
+                margin: 0;
+                color: $textColor;
+                font-size: 1.4em;
+                font-weight: $semiBold;
             }
         }
     }
 }
+
 
 .fi-video-list {
     border: 1px solid $grayBorder;
@@ -184,20 +185,24 @@
         &:hover {
             img,
             .fi-video-duration {
-                opacity: 1;
+                opacity: 0.95;
+            }
+
+            img {
+                transform: scale(1.1) rotate(0.02deg);
             }
         }
-
         &:active {
             .fi-video-media {
                 background-color: $black;
 
                 img,
                 .fi-video-duration {
-                    opacity: 95%;
+                    opacity: 1;
                 }
             }
         }
+
     }
 
     .fi-video-media {
@@ -228,7 +233,7 @@
             margin-top: -14px;
             margin-bottom: -14px;
             opacity: 0.5;
-            @extend %transition-opacity;
+            transition: transform .4s $easeDefault, opacity .2s $easeDefault;
         }
     }
 
@@ -237,6 +242,10 @@
         width: calc(49% - 8px);
         float: right;
         font-size: 10px;
+
+        p {
+            font-weight: $semiBold;
+        }
 
         .fi-video-heading {
             font-size: 1.8em;

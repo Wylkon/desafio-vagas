@@ -5,6 +5,8 @@
 .fi-header {
     background-color: $purple;
     height: 56px;
+    position: relative;
+    z-index: 2;
 
     .fi-wrap-header {
         width: 90vw;

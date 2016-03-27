@@ -1,0 +1,37 @@
+//
+// Search Page
+// ---------------------------
+
+
+.fi-search {
+
+    .fi-video-list {
+        max-height: 100%;
+        border: none;
+        padding: 0;
+        box-shadow: none;
+
+        li {
+            float: left;
+            width: 33.3333%;
+            overflow: hidden;
+            height: 95px;
+            position: relative;
+
+            h3 {
+                margin: 0;
+                font-size: 1.8em;
+            }
+
+            img {
+                margin-top: -10px;
+                margin-bottom: -10px;
+            }
+
+            .fi-video-views {
+                position: absolute;
+                bottom: 2px;
+            }
+        }
+    }
+}

@@ -1,0 +1,85 @@
+//
+// Loader
+// ---------------------------
+
+
+.fi-modal {
+    background: $white;
+    @extend %absolute-center;
+    width: 560px;
+    z-index: 2;
+    border: 1px solid $grayBorder;
+    padding: 15px 24px;
+    box-shadow: 0 3px 2px 0 rgba(#000, 0.2);
+
+    .fi-responsive-16by9 {
+        margin-bottom: 18px;
+        width: 100%;
+    }
+
+    .fi-modal-button-x {
+        float: right;
+        width: 19px;
+        height: 19px;
+        margin-bottom: 14px;
+        cursor: pointer;
+        color: transparent;
+        outline: none;
+
+        svg {
+            transition: color .2s $easeDefault;
+        }
+
+        .icon-close-x {
+            stroke: #f40000;
+        }
+
+        &:hover {
+            color: #f40000;
+            .icon-close-x {
+                stroke: #fff;
+            }
+        }
+
+        &:active {
+            color: #c4161c;
+            .icon-close-x {
+                stroke: #fff;
+            }
+        }
+    }
+
+    &.disabled {
+        display: none;
+    }
+
+    .fi-video-details {
+        width: 100%;
+        float: left;
+        border: none;
+        box-shadow: none;
+
+        &:after {
+            display: none;
+        }
+
+        .fi-description-wrap {
+            max-height: 100%;
+            overflow: auto;
+        }
+    }
+}
+
+.fi-modal-overlay {
+    background: rgba($white, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    @extend %transition-opacity;
+
+    &.disabled {
+        display: none;
+    }
+}
