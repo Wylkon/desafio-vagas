@@ -104,13 +104,13 @@ class VideoModal extends React.Component {
   closeModal(){
     $('.fi-modal').addClass('disabled');
     $('.fi-modal-overlay').addClass('disabled');
-    $('.embed-responsive-item').removeAttr('src');
+    $('.embed-responsive-item').clone().appendTo('.fi-responsive-16by9');
+    $('.embed-responsive-item')[1].remove();
     $('body').removeClass('is-opened');
   }
 
   render() {
     const url = `https://www.youtube.com/embed/${this.state.id}`;
-
     return (
       <div className="fi-modal disabled">
         <button className="fi-modal-button-x fi-modal-close" onClick={() => this.closeModal()}><svg id="icon-close" viewBox="0 0 18.3 18.3"><circle className="icon-close" cx="9.1" cy="9.1" r="7.6" /><path className="icon-close-x" d="M6.4 6.5l5.3 5.6M6.3 11.9l5.6-5.3"/></svg></button>

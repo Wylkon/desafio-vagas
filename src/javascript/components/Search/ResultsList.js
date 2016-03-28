@@ -19,7 +19,8 @@ class ResultsList extends React.Component {
   closeModal(){
     $('.fi-modal').addClass('disabled');
     $('.fi-modal-overlay').addClass('disabled');
-    $('.embed-responsive-item').removeAttr('src');
+    $('.embed-responsive-item').clone().appendTo('.fi-responsive-16by9');
+    $('.embed-responsive-item')[0].remove();
   }
 
   render(){
