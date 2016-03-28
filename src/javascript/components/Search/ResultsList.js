@@ -26,8 +26,8 @@ class ResultsList extends React.Component {
     return (
       <div>
         <ul className="fi-list-group">
-          {this.props.videos.map((video) => (
-            <li className="fi-video-item" key={video.etag} onClick={(onClick) => this.bindModal(video)}>
+          {this.props.videos.map((video, i) => (
+            <li className="fi-video-item" key={i} onClick={(onClick) => this.bindModal(video)}>
               <div className="fi-video-media">
                 {video.snippet.thumbnails.high.url && <img className="fi-video-image" src={video.snippet.thumbnails.high.url} />}
               </div>

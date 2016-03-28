@@ -8,10 +8,55 @@ button {
     padding: 0;
 }
 
-.btn {
-    display: inline-block;
-    &:hover {}
-    &:focus {}
-    &.active, &:active {}
-    &.disabled, &[disabled] {}
+.fi-wrap-load {
+    position: relative;
+
+    &.loading {
+        .icon-svg {
+            opacity: 1;
+        }
+
+        .fi-load-more {
+            pointer-events: none;
+            opacity: 0;
+        }
+    }
+
+    .icon-svg {
+        pointer-events: none;
+        position: absolute;
+        bottom: -10px;
+        width: 100%;
+        height: 50px;
+        opacity: 0;
+        @extend %transition-opacity;
+    }
+}
+
+.fi-load-more {
+    opacity: 1;
+    display: block;
+    text-transform: uppercase;
+    font-family: $secondaryFont;
+    text-align: center;
+    color: $gray;
+    width: 100%;
+    border: 1px solid $grayBorder;
+    padding: 8px;
+    border-radius: 6px;
+    height: 30px;
+    cursor: pointer;
+    transition: color .2s $easeDefault, background .2s $easeDefault;
+    outline: none;
+    @extend %transition-opacity;
+
+    &:hover {
+        background-color: $gray;
+        color: $white;
+    }
+
+    &:active {
+        background-color: $gray2;
+        color: $white;
+    }
 }

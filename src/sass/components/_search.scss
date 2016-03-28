@@ -5,6 +5,10 @@
 
 .fi-search {
 
+    .fi-list-group {
+        height: auto;
+    }
+
     .fi-video-list {
         max-height: 100%;
         border: none;
@@ -26,6 +30,13 @@
                 margin-top: 20px;
             }
         }
+    }
+
+    .fi-wrap-load {
+        max-width: 363px;
+        margin: 0 auto;
+        padding-top: 18px;
+        clear: both;
     }
 }
 

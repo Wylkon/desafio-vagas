@@ -15,7 +15,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    @extend %transition-opacity;
+    @extend %transition-opacity-fast;
 
     &.disabled {
         opacity: 0;
@@ -23,8 +23,8 @@
     }
 
     span {
-        width: 50px;
-        height: 50px;
+        width: 100px;
+        height: 100px;
         @extend %absolute-center;
     }
 }

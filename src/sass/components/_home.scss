@@ -20,6 +20,10 @@
     box-shadow: 0 3px 2px 0 rgba(#000, 0.2);
     position: relative;
 
+    p {
+        margin-bottom: 0.3em;
+    }
+
     .fi-description-wrap {
         a {
             color: $purple;
@@ -119,32 +123,6 @@
     border: 1px solid $grayBorder;
     padding: 15px;
     box-shadow: 0 3px 2px 0 rgba(#000, 0.2);
-
-    .fi-load-more {
-        display: block;
-        text-transform: uppercase;
-        font-family: $secondaryFont;
-        text-align: center;
-        color: $gray;
-        width: 100%;
-        border: 1px solid $grayBorder;
-        padding: 8px;
-        border-radius: 6px;
-        height: 30px;
-        cursor: pointer;
-        transition: color .2s $easeDefault, background .2s $easeDefault;
-        outline: none;
-
-        &:hover {
-            background-color: $gray;
-            color: $white;
-        }
-
-        &:active {
-            background-color: $gray2;
-            color: $white;
-        }
-    }
 
     li {
         @include clearfix;
@@ -301,5 +279,17 @@
 
     .fi-video-list {
         max-height: 519px;
+
+        ul {
+            height: 440px;
+            margin-bottom: 16px;
+        }
+
+        &.fi-scroll {
+            ul {
+                overflow: auto;
+            }
+        }
+
     }
 }

@@ -13,12 +13,8 @@ class Videos extends React.Component {
       nextPageToken: ''
     }
 
-    this.init(this.props.params.term);
-  }
-
-  componentDidMount(){
     this.loader();
-    this.init(this.props.params.term)
+    this.init(this.props.params.term);
   }
 
   loader(){
@@ -31,12 +27,21 @@ class Videos extends React.Component {
   }
 
   init(term){
-    YTSearch({key: ApiKey, term: term, channelId: 'UCqhnX4jA0A5paNd1v-zEysw', maxResults: 12}, videos => {
+    YTSearch({key: ApiKey, term: term, channelId: 'UCqhnX4jA0A5paNd1v-zEysw', maxResults: 12, nextPageToken: this.state.nextPageToken}, videos => {
       this.setState({
-        videos: videos.items,
+        videos: this.state.videos.concat(videos.items),
         nextPageToken: videos.nextPageToken ? videos.nextPageToken : null,
       });
+
+      setTimeout(function () {
+        $('.fi-wrap-load').removeClass('loading');
+      }, 600);
    });
+  }
+
+  loadMore(){
+    this.init(this.props.params.term);
+    $('.fi-wrap-load').addClass('loading');
   }
 
   render() {
@@ -45,6 +50,10 @@ class Videos extends React.Component {
         <div className="fi-search">
           <h2 className="fi-headline">Todos os vídeos do Canal</h2>
           <Results term={""} videos={this.state.videos} />
+          <div className="fi-wrap-load">
+              <button className="fi-load-more" onClick={() => this.loadMore()}>carregar mais vídeos...</button>
+              <span className="icon-svg"><svg><use xlinkHref='#loader'/></svg></span>
+          </div>
           <div className="fi-loader">
             <span className="icon-svg"><svg><use xlinkHref='#loader'/></svg></span>
           </div>

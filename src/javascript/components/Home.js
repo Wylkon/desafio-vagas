@@ -11,21 +11,30 @@ class Home extends React.Component {
     this.state = {
       selectedVideo: null,
       videos: [],
-      nextPageToken: null,
-      term: null
+      nextPageToken: ' ',
+      term: ' '
     };
 
     this.videoSearch(' ');
   }
   videoSearch(term) {
-    YTSearch({key: ApiKey, term: term, channelId: 'UCqhnX4jA0A5paNd1v-zEysw', maxResults: 4}, videos => {
+    YTSearch({key: ApiKey, term: term, channelId: 'UCqhnX4jA0A5paNd1v-zEysw', maxResults: 4, nextPageToken: this.state.nextPageToken}, videos => {
       this.setState({
-        videos: videos.items,
+        videos: this.state.videos.concat(videos.items),
         term: term,
         selectedVideo: videos.items[0],
         nextPageToken: videos.nextPageToken ? videos.nextPageToken : null
       });
+      setTimeout(function () {
+        $('.fi-wrap-load').removeClass('loading');
+      }, 600);
    });
+  }
+
+  loadMore(){
+    this.videoSearch(' ');
+    $('.fi-video-list').addClass('fi-scroll');
+    $('.fi-wrap-load').addClass('loading');
   }
 
   render(){
@@ -43,7 +52,8 @@ class Home extends React.Component {
                     videos={this.state.videos}
                   />
                   <div className="fi-wrap-load">
-                      <button className="fi-load-more">carregar mais vídeos...</button>
+                      <button className="fi-load-more" onClick={() => this.loadMore()}>carregar mais vídeos...</button>
+                      <span className="icon-svg"><svg><use xlinkHref='#loader'/></svg></span>
                   </div>
               </div>
           </section>
